@@ -1,0 +1,178 @@
+@import '../../../styles/colors';
+@import '../../../variables/variables';
+@import '../../../variables/mixins';
+
+
+
+.checkout {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px 30px 10px;
+
+    .checkout-left {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+
+        .shipping {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            align-items: center;
+            background-color: $white;
+            border-radius: 13px;
+
+            .shipping-left {
+                color: $TextColor;
+
+                .shipping-title {
+                    font-weight: 400;
+                    font-size: 31.25px;
+                    line-height: 38px;
+                    letter-spacing: 0.25em;
+                    text-transform: uppercase;
+                }
+
+                .shipping-details {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    margin-bottom: 20px;
+
+                    .text {
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 24px;
+                        text-transform: capitalize;
+
+                        .green {
+                            color: $tertiray;
+                        }
+                    }
+                }
+            }
+
+            .checkbtn {
+
+                .btn {
+                    color: $TextColor;
+                    border: none;
+                    outline: none;
+                    background-color: $white;
+                    padding: 8px 24px;
+                    border-radius: 11px;
+                    border: 1px solid $TextColor;
+                    cursor: pointer;
+
+                    &:hover {}
+
+                    &:active {}
+
+                    &:focus {}
+                }
+            }
+        }
+    }
+
+    .checkout-right {
+        width: 26%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        .right-container {
+            width: 76%;
+            padding: 10px 15px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 25px;
+            align-items: flex-end;
+
+            .right-total {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                row-gap: 16px;
+                background-color: $white;
+                padding: 16px;
+                border-radius: 12px;
+
+                .right-name {
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 24px;
+                    color: $dark;
+                    margin: 0;
+                }
+
+                .price {
+                    color: $tertiray;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 19px;
+                    letter-spacing: -0.02em;
+
+                    span {
+
+                        &:nth-child(even) {
+                            float: right;
+                        }
+                    }
+                }
+
+
+                .total {
+                    color: $danger;
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 24px;
+                    border-top: 1.5px solid #BFD1E5;
+                    border-bottom: 1.5px solid #BFD1E5;
+                    padding: 10px 0;
+
+                    span {
+
+                        &:nth-child(even) {
+                            float: right;
+                        }
+                    }
+                }
+
+                .rightBtn {
+                    border: none;
+                    padding: 8px 24px;
+                    background-color: $btnBgColor;
+                    border-radius: 11px;
+                    cursor: pointer;
+                }
+            }
+
+            .closeBtn {
+                border: none;
+                background: none;
+                color: $TextColor;
+                border: 1px solid $TextColor;
+                border-radius: 11px;
+                padding: 8px 24px;
+                display: flex;
+                column-gap: 8px;
+                align-items: center;
+                justify-content: center;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                letter-spacing: -0.02em;
+                cursor: pointer;
+                transition: 0.45s;
+
+
+                &:hover {
+                    background-color: azure;
+                    transition: 0.45s;
+
+                }
+            }
+        }
+    }
+}

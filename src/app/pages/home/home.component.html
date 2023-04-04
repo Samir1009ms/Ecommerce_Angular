@@ -1,0 +1,53 @@
+<main class="home">
+    <!--Todo Search Button   -->
+    <section class="home-left">
+        <app-search [items]="cartShop"></app-search>
+
+        <section class="container">
+            <ng-container *ngFor="let item of items">
+                <div class="product">
+                    <a class="product-top" [routerLinkActiveOptions]="{exact:true}" [routerLink]="'/info/'+item.id"
+                        routerLinkActive="listBg">
+                        <img class="product__img" [src]="item.img[0]" alt="">
+                    </a>
+                    <div class="product-bottom">
+                        <h5 class="product__name">{{item.name}}</h5>
+                        <span class="product__model">{{item.model}}</span>
+                        <p class="product-banner">
+                            <span class="product__price">${{item.price}}</span>
+                            <button (click)="post(item)" class="product__btn">
+                                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
+                                    class="style_icon__ToDcS" height="1em" width="1em"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </p>
+                    </div>
+                    <!-- <div>
+                        <ng-container>
+                            <p style="font-size: 20px; color: #000;">
+                                <span style="margin-right: 5px; cursor: pointer; font-size: 25px;"
+                                    (click)="plus(item)">+</span>
+                                =
+                                {{item.count}}
+
+
+
+                                =
+                                <span style="margin-left: 5px; cursor: pointer; font-size: 25px;">-</span>
+                            </p>
+
+                            <button (click)="delete(item)">delete</button>
+                        </ng-container>
+                    </div> -->
+                </div>
+            </ng-container>
+        </section>
+    </section>
+    <section class="home-right">
+        <app-bag-items [items]="basketItems" btntxt="Item Bag" link="bag"></app-bag-items>
+    </section>
+</main>

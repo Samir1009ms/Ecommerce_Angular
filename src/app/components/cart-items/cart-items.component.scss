@@ -1,0 +1,141 @@
+@import '../../../styles/colors';
+@import '../../../variables/variables';
+@import '../../../variables/mixins';
+
+.bag-item2 {
+    row-gap: 0 !important;
+    width: 100% !important;
+    padding: 5px 20px;
+    border-radius: 13px;
+    background-color: $white;
+
+    .title {
+        font-weight: 400;
+        font-size: 31.25px;
+        line-height: 38px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: $TextColor;
+    }
+}
+
+.bag-items {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+
+    .bag-item-conts {
+        border-radius: 0 !important;
+        border-bottom: 1px solid red;
+
+        &:last-child {
+
+            border: none;
+        }
+    }
+
+    .bag-item-cont {
+        width: 100%;
+        display: flex;
+        column-gap: 16px;
+        padding: 24px;
+        background-color: $white;
+        border-radius: 21px;
+
+        .bagItem-imgs {
+
+            .bagItem-photo {
+                height: 200px;
+                width: 203px;
+                object-fit: cover;
+                padding: 12px;
+            }
+        }
+
+        .bagItem-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            color: $TextColor;
+
+            .item-details {
+
+                .bag_name {
+                    font-weight: 400;
+                    font-size: 31.25px;
+                    line-height: 38px;
+                    margin-bottom: 8px;
+                }
+
+                .bag_model {
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 24px;
+                    color: $tertiray;
+                }
+            }
+
+            .bag_text {
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                letter-spacing: -0.02em;
+            }
+
+            .bag_ratings {
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 24px;
+                letter-spacing: -0.02em;
+                color: $green;
+
+                .stars {}
+
+                .rating {}
+            }
+
+            .bagItem_info {
+                display: flex;
+                justify-content: space-between;
+
+                .bagItem_qiymet {
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 24px;
+
+                    .x {}
+                }
+
+                .counts {
+
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 24px;
+                    display: flex;
+                    column-gap: 10px;
+
+                    .minus {
+                        cursor: pointer;
+                        color: #E5252C;
+                    }
+
+                    .plus {
+                        cursor: pointer;
+                        color: #02D693;
+                    }
+
+                    .count {}
+
+                }
+
+
+            }
+        }
+
+
+
+
+    }
+
+}

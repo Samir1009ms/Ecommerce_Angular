@@ -1,0 +1,25 @@
+<section class="search">
+    <div class="searchBtn">
+        <p class="searchBtn-name">Search Item</p>
+        <input class="searchBtn-input" [(ngModel)]="search" (input)="onSearch()" type="text" name="" id=""
+            placeholder="Apple Watch, Samsung S21, Macbook Pro, ...">
+    </div>
+    <div class="searchValue">
+        <ng-container *ngIf="searchValues && searchValues.length>0">
+            <div class="searchValueContainer">
+                <ng-container *ngFor="let item of searchValues">
+                    <div class="searchValue_cont">
+                        <a [routerLink]="'/info/'+item.id" class="search_img_cont">
+                            <img class="search-img" [src]="item.img[0]" alt="">
+                        </a>
+                        <div class="search_details">
+                            <h5 class="search_name">{{item.name}}</h5>
+                            <strong class="search_model">{{item.model}}</strong>
+                            <span class="search_price"> $ {{item.price}}</span>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</section>

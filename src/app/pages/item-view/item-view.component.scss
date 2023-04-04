@@ -1,0 +1,246 @@
+@import '../../../styles/colors';
+@import '../../../variables/variables';
+@import '../../../variables/mixins';
+
+.details {
+    width: 100%;
+    display: flex;
+    padding-left: 33px;
+    padding-top: 30px;
+    padding-bottom: 48px;
+    // margin-left: 34px;
+
+    .details-container {
+        width: 74.36%;
+        padding: 0 24px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+
+        .details-back {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            text-transform: capitalize;
+            padding: 8px;
+
+            .details-link {
+                color: $TextColor;
+
+                .pi {
+
+                    margin-right: 4px;
+                }
+
+                &:hover {}
+
+                &:active {}
+
+                &:focus {}
+            }
+        }
+
+
+        .details-top {
+            display: flex;
+            column-gap: 24px;
+
+
+            .details-img-container {
+                display: flex;
+                column-gap: 16px;
+
+                .imgs-cont {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 16px;
+
+                    .imgs {
+                        width: 49px;
+                        height: 58px;
+                        background-color: $white;
+                        padding: 3px;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        object-fit: contain;
+
+                    }
+                }
+
+                .img-event {
+                    width: 258px;
+                    height: 318px;
+                    background: $white;
+                    border-radius: 13px;
+                    padding: 8px;
+
+                    .photos {
+                        width: 242px;
+                        height: 302px;
+                        padding: 5px;
+                        // background-color: $white;
+                    }
+                }
+
+
+
+            }
+
+
+            .details-info {
+                .details-info-container {
+                    color: $TextColor;
+
+                    .details-items {
+                        padding: 8px;
+
+                        .details-info-name {
+                            font-weight: 700;
+                            font-size: 61.04px;
+                            line-height: 74px;
+                            margin: 0;
+
+                        }
+
+                        .details-info-model {
+                            font-weight: 500;
+                            font-size: 31.25px;
+                            line-height: 38px;
+                            // color: $TextColor;
+                            opacity: 50%;
+                        }
+                    }
+
+                    .details-info-stars {
+                        color: $green;
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 24px;
+                        letter-spacing: -0.02em;
+                        padding: 8px 16px;
+
+                        .details-info-star {}
+
+                        .details-info-rating {}
+                    }
+
+                    .details-info-price {
+                        font-weight: 500;
+                        font-size: 31.25px;
+                        line-height: 38px;
+                        // color: $TextColor;
+                    }
+
+                    .details-info-text {
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 24px;
+                        padding: 8px;
+                        // color: $TextColor;
+                    }
+
+                    .details-btn-cont {
+                        padding: 8px 20px;
+                        margin-top: 8px;
+                        display: flex;
+                        justify-content: flex-end;
+
+                        .btn {
+                            padding: 8px 24px;
+                            border-radius: 14px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            column-gap: 8.499px;
+                            border: none;
+                            outline: none;
+                            font-size: 20px;
+                            font-weight: 500;
+                            line-height: 24px;
+                            background-color: $btnBgColor;
+                            cursor: pointer;
+
+                            svg {
+                                font-size: 24px;
+
+                                path {
+                                    width: 24px !important;
+                                    display: inline-block;
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+
+            }
+
+        }
+
+        .details-bottom {
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 96%;
+                height: 3px;
+                border-radius: 5px;
+                background-color: $btnBgColor;
+                opacity: 50%;
+            }
+
+            .bottom-container {
+                padding: 16px 8px;
+                margin-top: 8px;
+
+                .bottom-name {
+                    font-weight: 500;
+                    font-size: 31.25px;
+                    line-height: 38px;
+                    color: $TextColor;
+                    text-transform: capitalize;
+                    margin-bottom: 6px;
+                }
+
+                .bottom-text {
+                    color: $tertiray;
+                    font-weight: 400;
+                    font-size: 20px;
+                    line-height: 24px;
+                    letter-spacing: -0.02em;
+                }
+            }
+        }
+
+
+
+    }
+
+    .bag-items {
+        width: 26.92%;
+        // width: 25.9903%; 
+        height: 91vh;
+        position: relative;
+
+        &::before {
+
+            content: "";
+            display: inline-block;
+            width: 3px;
+            // height: 100%;
+            background-color: $TextColor;
+            opacity: 50%;
+            position: absolute;
+            top: -10px;
+            bottom: 15px;
+            border-radius: 5px;
+        }
+
+    }
+}

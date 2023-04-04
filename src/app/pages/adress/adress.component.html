@@ -1,0 +1,61 @@
+<form action="" class="form grid justify-content-center" autocomplete="off" (ngSubmit)="submitForm()"
+    [formGroup]="form">
+
+    <div class="form-container col-7">
+        <!-- FullName -->
+        <div class="form-cont">
+            <label class="form-name">Shipping Name</label>
+            <input class="form-input" type="text" placeholder="John Maker" formControlName="fullName" />
+        </div>
+        <!-- /FullName -->
+
+        <!-- StreetName -->
+        <div class="form-cont">
+            <label class="form-name">Street Name</label>
+            <input class="form-input" type="text" placeholder="123 Plae Grond Stret" formControlName="streetName" />
+        </div>
+        <!-- /StreetName -->
+
+        <!-- City -->
+        <div class="form-cont">
+            <label class="form-name">City</label>
+            <input class="form-input" type="text" placeholder="Vermont" formControlName="city" />
+        </div>
+        <!-- /City -->
+
+        <!-- State -->
+        <div class="form-cont">
+            <label class="form-name">State / Province</label>
+            <input class="form-input" type="text" placeholder="California" formControlName="state" />
+        </div>
+        <!-- /State -->
+
+        <!-- Country -->
+        <div class="form-cont">
+            <label class="form-name">Street Name</label>
+            <input class="form-input" type="text" placeholder="Country" formControlName="country" />
+        </div>
+        <!-- /Country -->
+
+        <!-- CheckBox -->
+        <div class="form-cont2">
+            <input class="checkbox" type="checkbox" name="" id="" formControlName="ck">
+            <label class="form-BtnTxt" for="">Save this as your default address</label>
+        </div>
+        <!-- CheckBox -->
+
+        <div class="form-btn">
+            <button class="form-button" type="submit" [disabled]="!form.valid || !form.controls.ck.value"
+                color="primary">Add Address</button>
+        </div>
+        <div class="form-end">
+            <a class="form-link" routerLink="/checkout">
+                Back
+            </a>
+            <p class="secure">
+                <i class="pi pi-lock"></i>
+                Secure Connection
+            </p>
+        </div>
+    </div>
+</form>

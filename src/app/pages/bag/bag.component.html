@@ -1,0 +1,17 @@
+<main class="bas">
+    <section class="bag-left">
+        <div class="bag-left-container">
+            <div class="bag-title">
+                <h1 class="title">Check your Bag Items</h1>
+            </div>
+            <div class="bag-products">
+                <app-cart-items [items]="basketValues" (buttonClicked)="onButtonClicked()"></app-cart-items>
+            </div>
+        </div>
+    </section>
+    <section class="bag-right">
+        <app-bag-items [total]="totalPrice" [items]="basketValues" btntxt="Checkout" link="checkout"
+            [isBanner]="true"></app-bag-items>
+    </section>
+
+</main>

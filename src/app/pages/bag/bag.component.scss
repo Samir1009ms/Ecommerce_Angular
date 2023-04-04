@@ -1,0 +1,54 @@
+@import '../../../styles/colors';
+@import '../../../variables/variables';
+@import '../../../variables/mixins';
+
+
+.bas {
+    // width: 100%;
+    width: 1331px;
+    display: flex;
+    // flex-direction: column;
+    row-gap: 30px;
+
+    .bag-left {
+        // width: 74.28%;
+        width: 973px;
+        padding-left: 62px;
+
+        .bag-left-container {
+            .bag-title {
+                .title {
+                    font-weight: 400;
+                    font-size: 48.83px;
+                    line-height: 59px;
+                    color: $TextColor;
+                }
+            }
+
+            .bag-products {}
+
+
+
+        }
+    }
+
+    .bag-right {
+        width: 25.9903%;
+        height: 96vh;
+        position: relative;
+
+        &::before {
+
+            content: "";
+            display: inline-block;
+            width: 3px;
+            // height: 100%;
+            background-color: $TextColor;
+            opacity: 50%;
+            position: absolute;
+            top: 15px;
+            bottom: 15px;
+            border-radius: 5px;
+        }
+    }
+}

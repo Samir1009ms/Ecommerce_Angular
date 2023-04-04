@@ -1,0 +1,65 @@
+@import '../../../styles/colors';
+@import '../../../variables/variables';
+@import '../../../variables/mixins';
+
+.bagİtem {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+
+    .bagİtem-top {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 10px;
+
+        .bagİtem-top-name {
+            font-weight: 500;
+            font-size: 39.06px;
+            line-height: 47px;
+            color: $TextColor;
+        }
+
+        .bagİtem-img-container {
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+
+
+            .bagİtem-imgs {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+                border-radius: 14px;
+                padding: 10px;
+                /* --highlight-bg: white; */
+                background: white;
+            }
+        }
+    }
+
+    .bagİtem-bottom {
+
+        .bagİtem-btn {
+            cursor: pointer;
+            text-transform: capitalize;
+            border: none;
+            outline: none;
+            padding: 8px 24.47px;
+            border-radius: 14px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+            background-color: $btnBgColor;
+
+            svg {
+                font-size: 24px;
+            }
+        }
+    }
+}

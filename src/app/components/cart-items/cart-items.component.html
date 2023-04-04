@@ -1,0 +1,42 @@
+<div class="bag-items {{style2}}">
+    <ng-container *ngIf="isBanner">
+        <h1 class="title">Review you Bag</h1>
+    </ng-container>
+    <ng-container *ngFor="let item of items">
+
+        <div class='{{style}} bag-item-cont'>
+            <div class="bagItem-imgs">
+                <img class="bagItem-photo" [src]="item.img[0]" alt="">
+            </div>
+            <div class="bagItem-details">
+                <div class="item-details">
+                    <h3 class="bag_name">{{item.name}}</h3>
+                    <strong class="bag_model">{{item.model}}</strong>
+                </div>
+                <span class="bag_text"> Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam </span>
+                <p class="bag_ratings">
+                    <span class="stars"> </span>
+                    <span class="rating">{{item.rating}} / 5</span>
+                </p>
+                <div class="bagItem_info">
+                    <span class="bagItem_qiymet">
+                        $ {{item.price}}
+                        <span class="x">
+                            x
+                        </span>
+                        {{item.count}}
+                    </span>
+                    <div class="counts">
+                        <span class="minus" (click)="onClick(item)">
+                            <i class="pi pi-minus"></i>
+                        </span>
+                        <span class="count">{{item.count}} </span>
+                        <span class="plus" (click)="onClick2(item)">
+                            <i class="pi pi-plus"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,118 @@
+@import '../../../styles/colors';
+@import '../../../variables/variables';
+@import '../../../variables/mixins';
+
+
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 11px;
+
+    .searchBtn {
+        width: 54.88%;
+        // margin: 0 auto;
+
+        &-name {
+
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            letter-spacing: -0.02em;
+            color: $tertiray;
+            padding-left: 5px;
+            margin-bottom: 8px;
+        }
+
+        &-input {
+            width: 96.941%;
+            height: 56px;
+            border-radius: 13px;
+            box-shadow: $shadow;
+            padding: 8px 16px;
+            background-color: $white;
+            color: $TextColor;
+            border: none;
+            outline: none;
+            opacity: 0.7;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+
+
+            &::placeholder {
+                color: $TextColor;
+                opacity: 0.5;
+            }
+        }
+    }
+
+
+    .searchValue {
+        width: 54.88%;
+        position: relative;
+
+        .searchValueContainer {
+            width: 97%;
+            background-color: $tertiray;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            // justify-content: space-evenly;
+            gap: 10.5px;
+            padding: 10.5px 0 10.5px 10.5px;
+            border-radius: 13px;
+
+            .searchValue_cont {
+                display: flex;
+                column-gap: 10px;
+                padding: 10px;
+                background-color: burlywood;
+                width: 48%;
+                border-radius: 3px;
+                // margin: 10.72px 0;
+
+
+                .search_img_cont {
+                    width: 84px;
+                    height: 84px;
+                    background-color: $white;
+                    padding: 7px;
+                    border-radius: 11px;
+                    object-fit: contain;
+                    cursor: pointer;
+
+                    .search-img {
+                        width: 70px;
+                        height: 70px;
+                        object-fit: cover;
+                        padding: 1px;
+                    }
+
+                }
+
+                .search_details {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+
+                    color: $TextColor;
+
+                    .search_name {}
+
+                    .search_model {}
+
+                    .search_price {}
+                }
+
+
+
+            }
+        }
+
+    }
+}

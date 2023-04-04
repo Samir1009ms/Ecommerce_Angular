@@ -1,0 +1,92 @@
+<main class="details">
+    <section class="details-container">
+        <div class="details-back">
+            <a class="details-link" routerLink="/">
+                <i class="pi pi-chevron-left"></i>
+                back
+            </a>
+        </div>
+        <ng-container *ngIf="items">
+            <div class="details-top">
+                <div class="details-img-container">
+                    <div class="imgs-cont">
+                        <ng-container *ngFor="let i of items.img">
+                            <img class="imgs" (click)="getImg($event)" [src]="i" [alt]="items.name">
+                        </ng-container>
+                    </div>
+                    <div class="img-event">
+                        <img class="photos" src="{{src}}" [alt]="items.name">
+                    </div>
+                </div>
+                <div class="details-info">
+                    <div class="details-info-container">
+                        <div class="details-items">
+                            <h1 class="details-info-name">{{items.name}}</h1>
+                            <strong class="details-info-model">{{items.model}}</strong>
+                        </div>
+                        <p class="details-info-stars">
+                            <span class="details-info-star"></span>
+                            <span class="details-info-rating">
+                                <i class="pi pi-star-fill"></i>
+                                <i class="pi pi-star-fill"></i>
+                                <i class="pi pi-star-fill"></i>
+                                <i class="pi pi-star-fill"></i>
+                                <i class="pi pi-star"></i>
+                                {{items.rating}} / 5 </span>
+                        </p>
+                        <span class="details-info-price"> $ {{items.price}}</span>
+                        <p class="details-info-text">{{items.info}}</p>
+                        <div class="details-btn-cont">
+                            <button class="btn" (click)="basketPost(items)">
+                                <svg _ngcontent-frp-c5="" stroke="currentColor" fill="currentColor" stroke-width="0"
+                                    viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"
+                                    class="style_icon__ToDcS">
+                                    <path _ngcontent-frp-c5="" fill-rule="evenodd"
+                                        d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z">
+                                    </path>
+                                </svg>
+                                Add to Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details-bottom">
+                <div class="bottom-container">
+                    <h4 class="bottom-name">description </h4>
+                    <span class="bottom-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim odio faucibus nec malesuada
+                        purus
+                        volutpat vel sed viverra. Id sagittis, phasellus dui in arcu. Nec arcu, sit nunc, nibh purus
+                        pellentesque sagittis. Felis rhoncus facilisis massa eget purus in purus. Etiam at cras nulla
+                        nunc.
+                        Malesuada in pretium diam scelerisque sit mattis in egestas neque. Eu porta tempor sodales nisl
+                        integer turpis porttitor sed sed. Ut senectus odio dictum enim velit tempor diam quisque
+                        suspendisse.
+                        Orci vel ridiculus diam viverra. Libero malesuada orci, quis placerat suscipit augue imperdiet.
+                        Et
+                        praesent augue dictum mauris eget lacus malesuada. Aenean nisi, sodales natoque massa magna
+                        dignissim mi. Mattis tellus, justo, lorem sed tempor diam sit viverra enim. Id id placerat eu
+                        etiam
+                        nulla laoreet.
+                        Dignissim leo fames turpis quis suspendisse vulputate laoreet vulputate ac. Aliquam justo lectus
+                        eu
+                        dui porttitor. Cras a aliquam phasellus sollicitudin ornare. Tristique volutpat facilisis in ut
+                        proin. Est vitae facilisi sollicitudin id lorem mattis nibh ipsum, nec. Consectetur consectetur
+                        morbi morbi aliquet mi risus, velit, sit at. Integer morbi viverra hendrerit risus.
+                        Odio phasellus nibh senectus nec id enim quam sed. At potenti sollicitudin sollicitudin lobortis
+                        morbi. Nunc molestie et adipiscing aliquam. Sit vel mi dolor suscipit. In eget ut ac at facilisi
+                        leo
+                        viverra. Arcu ac ut fermentum, viverra et, vitae etiam cras. Eu purus non ut turpis fusce. Mi
+                        vitae
+                        nibh mi ut feugiat varius risus eros.
+
+                    </span>
+                </div>
+            </div>
+        </ng-container>
+    </section>
+    <section class="bag-items">
+        <app-bag-items btntxt="item bag" link="bag" [items]="basketItems"></app-bag-items>
+    </section>
+</main>

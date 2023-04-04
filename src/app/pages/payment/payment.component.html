@@ -1,0 +1,68 @@
+<main class="grid payment justify-content-center mr-0 ">
+    <section class=" col-7 payment-container">
+        <div class="form-top">
+            <div class="form-top-text">
+                <h1 class="top-name">Select a Card</h1>
+            </div>
+            <div class="cart-cont">
+                <i class="pi pi-credit-card"></i>
+                MasterCard ending in 4242
+            </div>
+            <div class="cart-cont">
+                <i class="pi pi-credit-card"></i>
+                Visa ending in 8484
+            </div>
+        </div>
+        <div class="form-bottom">
+            <form class="forms" action="" method="post" [formGroup]="form" (ngSubmit)="submitForm()">
+                <div class="form-text">
+                    <h1 class="top">Add a new Card</h1>
+                </div>
+                <div class="form-cont">
+                    <label class="form-name">Cardholder Name</label>
+                    <input class="form-input" type="text" placeholder="John Maker" formControlName="fullName" />
+                </div>
+                <div class="form-cont">
+                    <label class="form-name">Card Number</label>
+                    <i class="pi pi-credit-card"></i>
+
+                    <input maxlength="16" class="form-input carts" type="text" (keyup)="updateCardType($event)"
+                        placeholder="5126-5987-2214-7621" formControlName="card" />
+                </div>
+                <div class="form-details">
+                    <div class="form-cont-date form-cont">
+                        <label class="form-name">Expiry Date</label>
+                        <span class="app-icon">
+                            calendar_month
+                        </span>
+                        <input class="form-input dates" maxlength="7" type="text" placeholder="MM / YYYY"
+                            formControlName="date" />
+                    </div>
+                    <div class="form-cont-date form-cont">
+                        <label class="form-name">CVC</label>
+                        <input class="form-input" maxlength="3" type="text" placeholder="123" formControlName="cvc" />
+                    </div>
+                </div>
+                <div class="form-cont2">
+                    <input class="checkbox" type="checkbox" name="" id="" formControlName="checkbox">
+                    <label class="form-BtnTxt" for="">Save this as your default address</label>
+                </div>
+
+
+                <div class="form-btn">
+                    <button class="form-button" type="submit" color="primary"
+                        [disabled]="!form.valid||!form.controls.checkbox.value">Add Address</button>
+                </div>
+                <div class="form-end">
+                    <a class="form-link" routerLink="/checkout">
+                        Back
+                    </a>
+                    <p class="secure">
+                        <i class="pi pi-lock"></i>
+                        Secure Connection
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
