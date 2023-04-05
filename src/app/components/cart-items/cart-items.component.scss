@@ -42,6 +42,26 @@
         padding: 24px;
         background-color: $white;
         border-radius: 21px;
+        position: relative;
+
+        .app-icon {
+            color: red;
+            position: absolute;
+
+            right: 15px;
+            top: 15px;
+            font-size: 29px;
+            cursor: pointer;
+            transition: .45s ease-in-out;
+
+
+            &:hover {
+                transition: .45s ease-in-out;
+                transform: scale(1.083);
+                color: $danger;
+            }
+
+        }
 
         .bagItem-imgs {
 

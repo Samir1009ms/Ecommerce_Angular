@@ -1,15 +1,22 @@
 import { EcommerceService } from './../../services/ecommerce.service';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatCalendar, MatDatepicker, MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
+import { Icard } from '../../models/models';
 
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss'],
 })
-export class PaymentComponent {
+export class PaymentComponent implements OnInit {
+  constructor(private EcommerceService: EcommerceService, private router: Router) {}
+
+  ngOnInit() {
+    this.getCard();
+  }
+
   form = new FormGroup({
     id: new FormControl(1),
     cartType: new FormControl(''),
@@ -20,7 +27,12 @@ export class PaymentComponent {
     checkbox: new FormControl(false),
   });
 
-  constructor(private EcommerceService: EcommerceService, private router: Router) {}
+  card: Icard[] = [];
+  getCard() {
+    this.EcommerceService.getCards().subscribe(result => {
+      this.card = result;
+    });
+  }
 
   say = 0;
   submitForm() {
@@ -52,12 +64,17 @@ export class PaymentComponent {
       cartType = 'Visa';
     } else if (cardNumber.match(regexMastercard)) {
       console.log('Mastercard');
-      cartType = 'Mastercard';
+      cartType = 'Master Card';
     } else {
       cartType = 'yoxdu';
       console.log('Card type not recognized');
       console.log(typeof cardNumber);
     }
     this.form.patchValue({ cartType });
+  }
+
+  getId(event: any) {
+    console.log(event.id);
+    localStorage.setItem('id', event.id);
   }
 }

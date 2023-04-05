@@ -227,20 +227,6 @@
   ],
   "basket": [
     {
-      "id": 2,
-      "name": "Sony ZX331BT",
-      "model": "Light Grey",
-      "price": 39.99,
-      "rating": "3.7",
-      "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pellentesque tellus imperdiet mattis. Proin in quis ipsum non amet imperdiet. Dignissim nisi leo a at. Sit nec lacus, nunc volutpat, tincidunt lorem mi duis. Vitae elementum libero.",
-      "count": 5,
-      "img": [
-        "https://raw.githubusercontent.com/Samir1009ms/photo/d791d678569184957cd4eb1043aba0cc31441ae0/qulaqciq.svg",
-        "https://cdn.cimri.io/image/480x480/jbl-tune-510bt-siyah-multi-connect-wireless-kulaklik_528706694.jpg",
-        "https://www.kindpng.com/picc/m/12-126171_bluetooth-kulaklk-kafa-st-hd-png-download.png"
-      ]
-    },
-    {
       "id": 3,
       "name": "Iphone 11",
       "model": "Serious Black",
@@ -267,62 +253,34 @@
         "https://productimages.hepsiburada.net/s/32/550/10356112785458.jpg",
         "https://productimages.hepsiburada.net/s/32/1100/10356112752690.jpg/format:webp"
       ]
-    },
-    {
-      "id": 6,
-      "name": "Iphone 11",
-      "model": "Product RED",
-      "price": 619.99,
-      "count": 1,
-      "rating": "3.9",
-      "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pellentesque tellus imperdiet mattis. Proin in quis ipsum non amet imperdiet. Dignissim nisi leo a at. Sit nec lacus, nunc volutpat, tincidunt lorem mi duis. Vitae elementum libero.",
-      "img": [
-        "https://raw.githubusercontent.com/Samir1009ms/photo/d791d678569184957cd4eb1043aba0cc31441ae0/apple11-red.svg",
-        "https://cdn.dsmcdn.com/ty198/product/media/images/20211014/17/147830569/113416042/1/1_org_zoom.jpg",
-        "https://cdn.dsmcdn.com/ty198/product/media/images/20211014/17/147830588/113416042/1/1_org_zoom.jpg"
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Macbook Pro 16",
-      "model": "Silver - M1 Pro",
-      "price": 3249.99,
-      "count": 1,
-      "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pellentesque tellus imperdiet mattis. Proin in quis ipsum non amet imperdiet. Dignissim nisi leo a at. Sit nec lacus, nunc volutpat, tincidunt lorem mi duis. Vitae elementum libero.",
-      "rating": "5",
-      "img": [
-        "https://raw.githubusercontent.com/Samir1009ms/photo/d791d678569184957cd4eb1043aba0cc31441ae0/macbook-16-pro.svg",
-        "https://resim.epey.com/787548/b_apple-macbook-pro-13-3-m2-8gb-256ssd-gumus-2.jpg",
-        "https://resim.epey.com/787548/b_apple-macbook-pro-13-3-m2-8gb-256ssd-gumus-5.jpg"
-      ]
     }
   ],
   "adress": [
     {
-      "fullName": "sa",
-      "streetName": "sa",
-      "city": "sas",
-      "state": "sa",
-      "country": "sa",
+      "fullName": "Samir yusifov",
+      "streetName": "123 Plae Grond Stret",
+      "city": "Ajami",
+      "state": "Baku",
+      "country": "Azerbaijan",
       "id": 1
     }
   ],
   "card": [
     {
-      "id": 1,
-      "cartType": "Visa",
       "fullName": "samir yusifov",
       "card": "4149741394701443",
       "date": "10/2002",
-      "cvc": "123"
+      "cvc": "123",
+      "id": 1,
+      "cartType": "Visa"
     },
     {
-      "id": 2,
-      "cartType": "Mastercard",
       "fullName": "samir yusifov",
       "card": "5152741394701443",
       "date": "10/2002",
-      "cvc": "123"
+      "cvc": "123",
+      "id": 2,
+      "cartType": "Master Card"
     }
   ]
 }

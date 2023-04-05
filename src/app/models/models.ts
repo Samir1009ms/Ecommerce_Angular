@@ -41,3 +41,14 @@ export interface IAdres {
   country: string;
   id: number;
 }
+
+export type ICards = Icard[];
+
+export interface Icard {
+  fullName: string;
+  card: string;
+  date: string;
+  cvc: string;
+  id: number;
+  cartType: string;
+}

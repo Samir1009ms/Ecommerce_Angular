@@ -72,6 +72,18 @@ export class CartItemsComponent {
     return totalPric;
   }
 
+  delete(item: IProduct) {
+    const index = this.items.findIndex(i => i.id === item.id); //! array da olan itemslarin indexsi yoxdursa sorgu atmasin
+    if (index > -1) {
+      this.EcommerceService.delete(item).subscribe(res => {
+        console.log(res);
+        // this.getBasket();
+      });
+    } else {
+      console.log('delete error');
+    }
+  }
+
   @Output() buttonClicked = new EventEmitter<void>();
 
   onClick(item: IProduct) {
@@ -81,5 +93,9 @@ export class CartItemsComponent {
   onClick2(item: IProduct) {
     this.buttonClicked.emit();
     this.itemsPlus(item);
+  }
+  clear(item: IProduct) {
+    this.buttonClicked.emit();
+    this.delete(item);
   }
 }

@@ -24,14 +24,15 @@
             <div class="shipping-left">
                 <h1 class="shipping-title">Payment Method</h1>
 
-                <div class="shipping-details">
-                    <span class="text"> Mastercard <span class="green">ending in 1252</span></span>
-                    <span class="text">123 Plae Grond Stret</span>
-                    <span class="text">$ 53.21 <span class="green">gift card balance</span></span>
-                    <span class="text">
+               <ng-container *ngIf="cards">
+                   <div class="shipping-details">
+                       <span class="text"> {{cards.cartType}} <span class="green">ending in {{cards.card.slice(12)}}</span></span>
+                       <span class="text">$ 53.21 <span class="green">gift card balance</span></span>
+                       <span class="text">
                         Billing address same as Shipping Address
                     </span>
-                </div>
+                   </div>
+               </ng-container>
             </div>
             <div class="checkbtn">
                 <button routerLink="/payment" class="btn">

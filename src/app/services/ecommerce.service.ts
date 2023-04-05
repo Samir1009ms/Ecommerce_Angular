@@ -1,4 +1,4 @@
-import { IProduct, Ar, Ibasket, IAdres, AdresType } from './../models/models';
+import { IProduct, Ar, Ibasket, IAdres, AdresType, ICards, Icard } from './../models/models';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, switchMap } from 'rxjs';
@@ -50,6 +50,20 @@ export class EcommerceService {
 
   getAdress() {
     return this.http.get<AdresType>(`${this.baseUrl}adress`).pipe(
+      switchMap(res => {
+        return of(res);
+      })
+    );
+  }
+  getCards() {
+    return this.http.get<ICards>(`${this.baseUrl}card`).pipe(
+      switchMap(res => {
+        return of(res);
+      })
+    );
+  }
+  getCardsId(id: any) {
+    return this.http.get<Icard>(`${this.baseUrl}card/${id}`).pipe(
       switchMap(res => {
         return of(res);
       })

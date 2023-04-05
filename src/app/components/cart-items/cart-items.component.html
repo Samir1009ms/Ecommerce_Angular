@@ -5,6 +5,9 @@
     <ng-container *ngFor="let item of items">
 
         <div class='{{style}} bag-item-cont'>
+            <span (click)="clear(item)" class="app-icon">
+                cancel
+            </span>
             <div class="bagItem-imgs">
                 <img class="bagItem-photo" [src]="item.img[0]" alt="">
             </div>

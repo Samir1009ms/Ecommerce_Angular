@@ -4,14 +4,20 @@
             <div class="form-top-text">
                 <h1 class="top-name">Select a Card</h1>
             </div>
-            <div class="cart-cont">
-                <i class="pi pi-credit-card"></i>
-                MasterCard ending in 4242
-            </div>
-            <div class="cart-cont">
-                <i class="pi pi-credit-card"></i>
-                Visa ending in 8484
-            </div>
+          <ng-container *ngFor="let card of card">
+              <ng-container>
+                  <div (click)="getId(card)" class="cart-cont">
+                      <i class="pi pi-credit-card"></i>
+                      {{card.cartType}} ending in {{card.card.slice(12)}}
+                  </div>
+              </ng-container>
+<!--              <ng-container *ngIf="card.cartType=='Visa'">-->
+<!--                  <div class="cart-cont">-->
+<!--                      <i class="pi pi-credit-card"></i>-->
+<!--                      Visa ending in 8484-->
+<!--                  </div>-->
+<!--              </ng-container>-->
+          </ng-container>
         </div>
         <div class="form-bottom">
             <form class="forms" action="" method="post" [formGroup]="form" (ngSubmit)="submitForm()">

@@ -1,4 +1,4 @@
-import { IAdres, IProduct } from 'src/app/models/models';
+import { IAdres, Icard, IProduct } from 'src/app/models/models';
 import { EcommerceService } from './../../services/ecommerce.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -19,6 +19,7 @@ export class CheckoutComponent implements OnInit {
   ngOnInit(): void {
     this.getBasket();
     this.getAdress();
+    this.getCard();
   }
 
   getBasket() {
@@ -45,6 +46,16 @@ export class CheckoutComponent implements OnInit {
   getAdress() {
     this.EcommerceService.getAdress().subscribe(res => {
       this.adressValues = res;
+    });
+    // console.log(localStorage.getItem('id'));
+  }
+
+  cards: Icard | null = null;
+  getCard() {
+    let id = localStorage.getItem('id');
+    this.EcommerceService.getCardsId(id).subscribe(res => {
+      this.cards = res;
+      console.log(this.cards);
     });
   }
 }
