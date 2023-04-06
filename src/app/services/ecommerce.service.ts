@@ -7,7 +7,7 @@ import { Observable, of, switchMap } from 'rxjs';
   providedIn: 'root',
 })
 export class EcommerceService {
-  baseUrl = 'http://localhost:3300/';
+  baseUrl = 'https://json-rosy.vercel.app/';
   constructor(private http: HttpClient) {}
 
   getProduct(type: string) {
