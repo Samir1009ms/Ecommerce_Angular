@@ -16,7 +16,7 @@ export interface Ibasket {
 }
 
 export interface IProduct {
-  id: number;
+  _id: string;
   name: string;
   model: string;
   price: number;
@@ -35,7 +35,7 @@ export type AdresType = IAdres[];
 
 export interface IAdres {
   fullName: string;
-  streetName: string;
+  street: string;
   city: string;
   state: string;
   country: string;

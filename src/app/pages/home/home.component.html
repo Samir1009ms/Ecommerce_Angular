@@ -2,11 +2,14 @@
     <!--Todo Search Button   -->
     <section class="home-left">
         <app-search [items]="cartShop"></app-search>
+        <p style="width: 100%;text-align: center;font-size: 30px;color: red;cursor: pointer;" (click)="logout()">
+            logout
+        </p>
 
         <section class="container">
             <ng-container *ngFor="let item of items">
                 <div class="product">
-                    <a class="product-top" [routerLinkActiveOptions]="{exact:true}" [routerLink]="'/info/'+item.id"
+                    <a class="product-top" [routerLinkActiveOptions]="{exact:true}" [routerLink]="'/info/'+item._id"
                         routerLinkActive="listBg">
                         <img class="product__img" [src]="item.img[0]" alt="">
                     </a>
@@ -15,7 +18,7 @@
                         <span class="product__model">{{item.model}}</span>
                         <p class="product-banner">
                             <span class="product__price">${{item.price}}</span>
-                            <button (click)="post(item)" class="product__btn">
+                            <button (click)="post(item._id)" class="product__btn">
                                 <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
                                     class="style_icon__ToDcS" height="1em" width="1em"
                                     xmlns="http://www.w3.org/2000/svg">

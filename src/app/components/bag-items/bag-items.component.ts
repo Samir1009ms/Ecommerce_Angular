@@ -10,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BagItemsComponent implements OnInit {
   // items: IProduct[] = [];
   count: number = 0;
-  @Input() items: IProduct[] = [];
+  @Input() items: any;
   @Input() isBanner: boolean = false;
   @Input() total: number = 0;
   @Input() btntxt: string = '';

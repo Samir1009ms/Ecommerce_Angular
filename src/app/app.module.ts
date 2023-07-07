@@ -9,11 +9,13 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HasRoleDirective } from './directives/has-role.directive';
+import { AuthInterceptorProvaider } from './interceptor/auth.interceptor';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HasRoleDirective],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
-  providers: [],
+  providers: [AuthInterceptorProvaider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

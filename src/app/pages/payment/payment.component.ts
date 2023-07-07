@@ -11,7 +11,7 @@ import { Icard } from '../../models/models';
   styleUrls: ['./payment.component.scss'],
 })
 export class PaymentComponent implements OnInit {
-  constructor(private EcommerceService: EcommerceService, private router: Router) {}
+  constructor(private EcommerceService: EcommerceService, private router: Router) { }
 
   ngOnInit() {
     this.getCard();

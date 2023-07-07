@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { EcommerceService } from './../../services/ecommerce.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -13,22 +14,34 @@ export class ItemViewComponent implements OnInit {
   items: IProduct | null = null;
   basketItems: IProduct[] = [];
   src = '';
-
-  constructor(private activeRoute: ActivatedRoute, private EcommerceService: EcommerceService) {}
+  userId: any;
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private EcommerceService: EcommerceService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.activeRoute.params.pipe(first()).subscribe(({ id }) => {
       this.getItemId(id);
     });
+    this.getId();
 
-    this.getBasket();
+    setTimeout(() => {
+      this.getBasket(this.userId);
+    }, 100);
   }
 
-  getItemId(id: number) {
-    this.EcommerceService.getItemDetails(id).subscribe(res => {
+  getItemId(_id: number) {
+    this.EcommerceService.getItemDetails(_id).subscribe(res => {
       this.items = res;
       this.src = this.items.img[0];
+      console.log(res);
     });
+  }
+
+  getId() {
+    this.userId = this.authService.getUsers();
   }
 
   getImg(event: string | any) {
@@ -37,19 +50,19 @@ export class ItemViewComponent implements OnInit {
     console.log(this.src);
   }
 
-  getBasket() {
-    return this.EcommerceService.getProduct('basket').subscribe(res => {
-      this.basketItems = res;
+  getBasket(userId: any) {
+    return this.EcommerceService.getBasket(userId).subscribe(res => {
+      // this.basketItems = res;
     });
   }
 
   basketPost(item: IProduct | any) {
-    const index = this.basketItems.find(i => i.id === item.id);
+    const index = this.basketItems.find(i => i._id === item.id);
     if (!index) {
-      this.EcommerceService.post(item).subscribe(res => {
-        console.log(res);
-        this.getBasket();
-      });
+      // this.EcommerceService.post(item).subscribe(res => {
+      //   console.log(res);
+      //   this.getBasket();
+      // });
     }
   }
 }

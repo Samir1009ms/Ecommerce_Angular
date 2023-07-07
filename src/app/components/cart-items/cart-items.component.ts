@@ -1,6 +1,8 @@
 import { EcommerceService } from './../../services/ecommerce.service';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { IProduct } from 'src/app/models/models';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-cart-items',
@@ -8,21 +10,24 @@ import { IProduct } from 'src/app/models/models';
   styleUrls: ['./cart-items.component.scss'],
 })
 export class CartItemsComponent {
-  @Input() items: IProduct[] = [];
+  @Input() items: any;
   @Input() style: string = '';
   @Input() style2: string = '';
   @Input() isBanner: boolean = false;
 
   totalPrice: number = 0;
+  userId: string;
 
-  constructor(private EcommerceService: EcommerceService) {}
+  constructor(private EcommerceService: EcommerceService, private authService: AuthService, private route: Router) {}
 
   ngOnInit(): void {
-    // this.itemTotal();
+    this.itemTotal();
     this.totalPrice = this.itemTotal();
     console.log('t', this.totalPrice);
     console.log('ts', this.itemTotal());
     // this.getBasket();
+    this.getId();
+    console.log(this.items);
   }
   // getBasket() {
   //   this.EcommerceService.getProduct('basket').subscribe(res => {
@@ -30,72 +35,91 @@ export class CartItemsComponent {
   //   });
   // }
 
-  itemsPlus(item: IProduct) {
-    const index = this.items.findIndex(i => i.id === item.id);
-    console.log(item);
-    if (index > -1) {
-      item.count++;
+  getId() {
+    this.userId = this.authService.getUsers();
+  }
+
+  itemsPlus(item: any, inde: number) {
+    if (this.authService.isLoggedIn()) {
+      let id = this.items[inde].product._id;
+      let i = this.items[inde];
+      console.log(i);
+      console.log(item.count++);
       console.log(item);
-      // this.itemTotal();
+
+      // item++;
       this.totalPrice = this.itemTotal();
-      this.EcommerceService.postx(item).subscribe(
-        res => {
-          console.log(res);
-        },
-        error => {
-          console.log(error);
-        }
+      this.EcommerceService.postx(id, this.userId, item.count).subscribe(
+        res => {},
+        error => {}
       );
+    } else {
+      this.route.navigate(['/login']);
     }
   }
-  itemsMinus(item: IProduct) {
-    const index = this.items.findIndex(i => i.id === item.id);
-    if (index > -1) {
-      // this.itemTotal();
-      // console.log(this.totalPrice);
+  itemsMinus(item: any, index: number) {
+    if (this.authService.isLoggedIn()) {
+      let id = this.items[index].product._id;
       if (item.count > 1) {
         item.count--;
-        this.EcommerceService.postx(item).subscribe(res => {
-          console.log(res);
-        });
+        this.totalPrice = this.itemTotal();
+        this.EcommerceService.postx(id, this.userId, item.count).subscribe(
+          res => {},
+          error => {}
+        );
       }
-      this.totalPrice = this.itemTotal();
+    } else {
+      this.route.navigate(['/login']);
     }
   }
 
   itemTotal() {
     let totalPric = 0;
-    this.items.forEach(item => {
-      totalPric += item.count * item.price;
-      console.log(item);
-    });
+    // this.items.forEach(item => {
+    //   totalPric += item.count * item.price;
+    //   console.log(item);
+    // });
     return totalPric;
   }
 
-  delete(item: IProduct) {
-    const index = this.items.findIndex(i => i.id === item.id); //! array da olan itemslarin indexsi yoxdursa sorgu atmasin
+  delete(item: any) {
+    console.log(this.items);
+
+    const index = this.items.includes(item);
     if (index > -1) {
-      this.EcommerceService.delete(item).subscribe(res => {
+      console.log(this.userId);
+      this.items.splice(index, 1);
+
+      this.EcommerceService.delete(item._id, this.userId).subscribe(res => {
         console.log(res);
         // this.getBasket();
       });
-    } else {
-      console.log('delete error');
+      console.log('s');
     }
+
+    console.log(index);
+    console.log(item._id);
   }
 
   @Output() buttonClicked = new EventEmitter<void>();
+  @Output() itemsData = new EventEmitter<void>();
 
-  onClick(item: IProduct) {
-    this.buttonClicked.emit();
-    this.itemsMinus(item);
+  onClick(item: number, index: number) {
+    setTimeout(() => {
+      this.buttonClicked.emit();
+    }, 150);
+    this.itemsMinus(item, index);
   }
-  onClick2(item: IProduct) {
-    this.buttonClicked.emit();
-    this.itemsPlus(item);
+  onClick2(item: any, index: any) {
+    setTimeout(() => {
+      this.buttonClicked.emit();
+    }, 100);
+    this.itemsPlus(item, index);
   }
   clear(item: IProduct) {
-    this.buttonClicked.emit();
+    // setTimeout(() => {
+    //   this.itemsData.emit();
+    // }, 150);
     this.delete(item);
   }
 }

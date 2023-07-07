@@ -7,63 +7,77 @@ import { Observable, of, switchMap } from 'rxjs';
   providedIn: 'root',
 })
 export class EcommerceService {
-  baseUrl = 'https://json-rosy.vercel.app/';
-  constructor(private http: HttpClient) {}
+  private mainUrl = 'http://localhost:5500/api/';
+  private baseUrl = 'https://json-rosy.vercel.app/api/';
+  private apiUrl = 'https://ecommerce-back-end-theta.vercel.app/api/';
+  constructor(private http: HttpClient) { }
 
   getProduct(type: string) {
-    return this.http.get<Ar>(`${this.baseUrl}${type}`).pipe(
-      switchMap(res => {
-        return of(res);
-      })
-    );
-  }
-  post(item: Ar) {
-    console.log(item);
-
-    return this.http.post(`${this.baseUrl}basket`, item);
-  }
-  postx(item: IProduct): Observable<any> {
-    console.log(item);
-
-    return this.http.put(`${this.baseUrl}basket/${item.id}`, item);
-  }
-  Adrespost(item: any, type: string): Observable<any> {
-    console.log(item);
-
-    return this.http.put(`${this.baseUrl}${type}/${item.id}`, item);
-  }
-  getBasket() {
-    return this.http.get<Ar>(`${this.baseUrl}basket`).pipe(
+    return this.http.get<Ar>(`${this.apiUrl}${type}`).pipe(
       switchMap(res => {
         return of(res);
       })
     );
   }
 
-  delete(item: any) {
-    return this.http.delete(`${this.baseUrl}basket/${item.id}`, item);
+  post(productId: any, userId: string) {
+    return this.http.post(`${this.apiUrl}addCart/${userId}/products/${productId}`, { userId, productId });
+  }
+
+  postx(productId: any, userId: string, count: number): Observable<any> {
+    return this.http.put(`${this.apiUrl}updateCart/${userId}/update/${productId}`, { count });
+  }
+
+  Adrespost(item: any, userId: string): Observable<any> {
+    console.log(item);
+
+    return this.http.post(`${this.apiUrl}addProfile/${userId}`, item);
+  }
+
+  updateAdres(item: any, userId: string) {
+    return this.http.put(`${this.apiUrl}updateProfile/${userId}`, item);
+  }
+
+  getBasket(userId: any) {
+    return this.http.get<any>(`${this.apiUrl}getCart/${userId}`).pipe(
+      switchMap(res => {
+        return of(res.products);
+      })
+    );
+  }
+
+  delete(productId: string, userId: string) {
+    return this.http.delete(`${this.apiUrl}deleteCart/${userId}/delete/${productId}`);
   }
 
   getItemDetails(id: number) {
-    return this.http.get<IProduct>(`${this.baseUrl}items/${id}`);
+    return this.http.get<IProduct>(`${this.apiUrl}getDetail/${id}`);
   }
 
-  getAdress() {
-    return this.http.get<AdresType>(`${this.baseUrl}adress`).pipe(
+  getAdress(userId: any) {
+    return this.http.get<any>(`${this.apiUrl}getProfile/${userId}`).pipe(
       switchMap(res => {
         return of(res);
       })
     );
   }
   getCards() {
-    return this.http.get<ICards>(`${this.baseUrl}card`).pipe(
+    return this.http.get<ICards>(`${this.apiUrl}card`).pipe(
       switchMap(res => {
         return of(res);
       })
     );
   }
   getCardsId(id: any) {
-    return this.http.get<Icard>(`${this.baseUrl}card/${id}`).pipe(
+    return this.http.get<Icard>(`${this.apiUrl}card/${id}`).pipe(
+      switchMap(res => {
+        return of(res);
+      })
+    );
+  }
+
+  getSearch(name: string) {
+    return this.http.get<IProduct>(`${this.apiUrl}/search?search=${name}`).pipe(
       switchMap(res => {
         return of(res);
       })

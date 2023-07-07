@@ -5,7 +5,8 @@
                 <h1 class="title">Check your Bag Items</h1>
             </div>
             <div class="bag-products">
-                <app-cart-items [items]="basketValues" (buttonClicked)="onButtonClicked()"></app-cart-items>
+                <app-cart-items [items]="basketValues" (itemsData)="getItems()"
+                    (buttonClicked)="onButtonClicked()"></app-cart-items>
             </div>
         </div>
     </section>

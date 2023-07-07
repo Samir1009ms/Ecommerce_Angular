@@ -1,6 +1,7 @@
 import { IProduct } from 'src/app/models/models';
 import { EcommerceService } from './../../services/ecommerce.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-bag',
@@ -8,19 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bag.component.scss'],
 })
 export class BagComponent implements OnInit {
-  basketValues: IProduct[] = [];
+  basketValues: [any];
   type: boolean = true;
   totalPrice: number = 0;
   item: any;
-
-  constructor(private EcommerceService: EcommerceService) {}
+  userId: any;
+  constructor(private EcommerceService: EcommerceService, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.getBasket();
+    this.getId();
+    setTimeout(() => {
+      this.getBasket(this.userId);
+    }, 100);
   }
 
-  getBasket() {
-    this.EcommerceService.getProduct('basket').subscribe(res => {
+  getId() {
+    this.userId = this.authService.getUsers();
+  }
+
+  getBasket(userId: any) {
+    this.EcommerceService.getBasket(userId).subscribe(res => {
       this.basketValues = res;
       setTimeout(() => {
         this.totalPrice = this.itemTotal();
@@ -29,15 +37,22 @@ export class BagComponent implements OnInit {
   }
   onButtonClicked() {
     setTimeout(() => {
-      this.getBasket();
+      // this.getBasket(this.userId);
       this.totalPrice = this.itemTotal();
-    }, 10);
+    }, 150);
   }
+
+  getItems() {
+    setTimeout(() => {
+      this.getBasket(this.userId);
+    }, 100);
+  }
+
   itemTotal() {
     let totalPrice = 0;
     let total;
     this.basketValues.forEach(item => {
-      totalPrice += item.count * item.price;
+      totalPrice += item.count * item.product.price;
       console.log(item);
     });
     console.log(totalPrice.toFixed(2));

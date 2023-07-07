@@ -9,7 +9,7 @@
             <div class="searchValueContainer">
                 <ng-container *ngFor="let item of searchValues">
                     <div class="searchValue_cont">
-                        <a [routerLink]="'/info/'+item.id" class="search_img_cont">
+                        <a [routerLink]="'/info/'+item._id" class="search_img_cont">
                             <img class="search-img" [src]="item.img[0]" alt="">
                         </a>
                         <div class="search_details">

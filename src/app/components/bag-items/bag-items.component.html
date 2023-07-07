@@ -3,7 +3,8 @@
         <h3 class="bagİtem-top-name">Bag</h3>
         <div class="bagİtem-img-container">
             <ng-container *ngFor="let item of items,let i=index">
-                <img class="bagİtem-imgs" [src]="item.img[0]" alt="">
+                <img class="bagİtem-imgs" [src]="item.product.img[0]" alt="">
+                <p>{{item.count}}</p>
             </ng-container>
         </div>
     </div>

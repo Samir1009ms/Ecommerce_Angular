@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { IAdres, Icard, IProduct } from 'src/app/models/models';
 import { EcommerceService } from './../../services/ecommerce.service';
 import { Component, OnInit } from '@angular/core';
@@ -8,22 +9,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkout.component.scss'],
 })
 export class CheckoutComponent implements OnInit {
-  basketValues: IProduct[] = [];
+  basketValues: [any];
   adressValues: IAdres[] = [];
   type: boolean = true;
   totalPrice: number = 0;
   item: any;
+  userId: any;
 
-  constructor(private EcommerceService: EcommerceService) {}
+  constructor(private EcommerceService: EcommerceService, private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.getBasket();
-    this.getAdress();
+    setTimeout(() => {
+      this.getBasket(this.userId);
+      this.getAdress(this.userId);
+    }, 100);
+
     this.getCard();
+    this.getId();
+  }
+  getId() {
+    this.userId = this.authService.getUsers();
   }
 
-  getBasket() {
-    this.EcommerceService.getProduct('basket').subscribe(res => {
+  getBasket(userId: any) {
+    this.EcommerceService.getBasket(userId).subscribe(res => {
       this.basketValues = res;
       setTimeout(() => {
         this.totalPrice = this.itemTotal();
@@ -43,9 +52,10 @@ export class CheckoutComponent implements OnInit {
     return total;
   }
 
-  getAdress() {
-    this.EcommerceService.getAdress().subscribe(res => {
-      this.adressValues = res;
+  getAdress(userId: any) {
+    this.EcommerceService.getAdress(userId).subscribe(res => {
+      this.adressValues = [res];
+      console.log(this.adressValues);
     });
     // console.log(localStorage.getItem('id'));
   }
