@@ -2,6 +2,7 @@ import { AuthService } from './../../services/auth.service';
 import { IAdres, Icard, IProduct } from 'src/app/models/models';
 import { EcommerceService } from './../../services/ecommerce.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
@@ -16,7 +17,7 @@ export class CheckoutComponent implements OnInit {
   item: any;
   userId: any;
 
-  constructor(private EcommerceService: EcommerceService, private authService: AuthService) {}
+  constructor(private EcommerceService: EcommerceService, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -38,6 +39,14 @@ export class CheckoutComponent implements OnInit {
         this.totalPrice = this.itemTotal();
       }, 10);
     });
+  }
+
+  handleClick(link: string) {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate([link]);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   itemTotal() {

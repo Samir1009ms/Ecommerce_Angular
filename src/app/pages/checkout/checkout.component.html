@@ -14,7 +14,7 @@
                 </ng-container>
             </div>
             <div class="checkbtn">
-                <button routerLink="/adress" class="btn">
+                <button (click)="handleClick('/adress')" class="btn">
                     Change
                 </button>
             </div>
@@ -36,7 +36,7 @@
                 </ng-container>
             </div>
             <div class="checkbtn">
-                <button routerLink="/payment" class="btn">
+                <button (click)="handleClick('/payment')" routerLink="/payment" class="btn">
                     Change
                 </button>
             </div>
